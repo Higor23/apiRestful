@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS</title>
+</head>
+
+<body>
+    <button onclick="sendAjax()">Enviar</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function sendAjax() {
+            axios.get('http://laravel-web-service.test/api/v1/products')
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(error => {
+                    alert('Fail...')
+                    console.log(error)
+                })
+        }
+    </script>
+
+    <!-- Instalar o spatie laravel cors com o seguinte comando: composer require spatie/laravel-cors   dentro da pasta do projeto no laradock
+         Instalar o aquivo de config com o seguinte comando php artisan vendor:publish --provider="Spatie\Cors\CorsServiceProvider" --tag="config"
+    -->
+</body>
+
+</html>
